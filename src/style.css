@@ -1,0 +1,74 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+#map {
+  position: fixed;
+  inset: 0;
+}
+
+.status-bar {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  font-size: 13px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.status-bar.stale {
+  background: #fff4d6;
+  color: #7a5200;
+}
+
+.house-cluster div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.popup {
+  font-size: 14px;
+  line-height: 1.5;
+  min-width: 170px;
+}
+
+.popup-address {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.popup-time,
+.popup-note {
+  color: #666;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
