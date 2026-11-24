@@ -1,125 +1,184 @@
-import L from 'leaflet';
-import 'leaflet.markercluster';
-import 'leaflet/dist/leaflet.css';
-import 'leaflet.markercluster/dist/MarkerCluster.css';
+import * as maplibregl from 'maplibre-gl';
+import type { ExpressionSpecification, MapGeoJSONFeature, MapLayerMouseEvent } from 'maplibre-gl';
+import 'maplibre-gl/dist/maplibre-gl.css';
+// MapLibre v6 вантажить воркер окремим файлом — віддаємо Vite, щоб він потрапив у збірку.
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
 import './style.css';
 
-import { COLORS, DEFAULT_ZOOM, KREMEN_CENTER, STATE_LABELS } from './config';
+import {
+  BUILDING_HEIGHT_M,
+  COLORS,
+  DEFAULT_ZOOM,
+  FLAT_VIEW,
+  GAME_VIEW,
+  KREMEN_CENTER,
+  MAP_STYLE_URL,
+  STATE_LABELS,
+} from './config';
 import { startStatusPolling, type StatusSnapshot } from './status';
 import type { HouseProps, QueueState } from './types';
 
-type HouseMarker = L.CircleMarker & { house: HouseProps };
+const SOURCE = 'houses';
+const LAYER_BUILDINGS = 'houses-3d';
+const LAYER_POINTS = 'houses-fallback';
 
-const map = L.map('map', { preferCanvas: true }).setView(KREMEN_CENTER, DEFAULT_ZOOM);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-}).addTo(map);
+maplibregl.setWorkerUrl(workerUrl);
 
 let current: StatusSnapshot = { payload: null, lastSuccess: null, stale: false };
-const markers: HouseMarker[] = [];
+let gameView = true;
+
+const map = new maplibregl.Map({
+  container: 'map',
+  style: MAP_STYLE_URL,
+  center: KREMEN_CENTER,
+  zoom: DEFAULT_ZOOM,
+  ...GAME_VIEW,
+  maxPitch: 70,
+  attributionControl: { compact: true },
+});
+map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
 
 function stateOf(queue: string): QueueState | 'unknown' {
   return current.payload?.queues[queue] ?? 'unknown';
 }
 
-/** Колір кластера — за більшістю станів усередині. */
-const cluster = L.markerClusterGroup({
-  chunkedLoading: true,
-  showCoverageOnHover: false,
-  maxClusterRadius: 50,
-  iconCreateFunction(c) {
-    const counts: Record<string, number> = {};
-    for (const m of c.getAllChildMarkers() as unknown as HouseMarker[]) {
-      const s = stateOf(m.house.queue);
-      counts[s] = (counts[s] ?? 0) + 1;
-    }
-    const dominant = (Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] ??
-      'unknown') as keyof typeof COLORS;
-    const n = c.getChildCount();
-    const size = n < 50 ? 34 : n < 500 ? 42 : 50;
-    return L.divIcon({
-      html: `<div style="background:${COLORS[dominant]}">${n}</div>`,
-      className: 'house-cluster',
-      iconSize: [size, size],
-    });
-  },
+/**
+ * Колір будинку = match(queue → колір поточного стану).
+ * Перераховується лише цей вираз (12 гілок), сам шар не перебудовується.
+ */
+function colorExpression(): ExpressionSpecification {
+  const queues = current.payload?.queues ?? {};
+  const branches = Object.entries(queues).flatMap(([q, s]) => [q, COLORS[s] ?? COLORS.unknown]);
+  if (branches.length === 0) return ['literal', COLORS.unknown] as unknown as ExpressionSpecification;
+  return ['match', ['get', 'queue'], ...branches, COLORS.unknown] as unknown as ExpressionSpecification;
+}
+
+function repaint(): void {
+  if (!map.getLayer(LAYER_BUILDINGS)) return;
+  const expr = colorExpression();
+  map.setPaintProperty(LAYER_BUILDINGS, 'fill-extrusion-color', expr);
+  map.setPaintProperty(LAYER_POINTS, 'circle-color', expr);
+}
+
+map.on('load', () => {
+  map.addSource(SOURCE, { type: 'geojson', data: '/houses.geojson' });
+
+  // Наша «маска»: об'ємні кольорові будинки зі списку поверх нейтрального фону.
+  map.addLayer({
+    id: LAYER_BUILDINGS,
+    type: 'fill-extrusion',
+    source: SOURCE,
+    filter: ['==', ['geometry-type'], 'Polygon'],
+    paint: {
+      'fill-extrusion-color': COLORS.unknown,
+      'fill-extrusion-height': BUILDING_HEIGHT_M,
+      'fill-extrusion-base': 0,
+      'fill-extrusion-opacity': 0.92,
+    },
+  });
+
+  // Фолбек: будинки без контуру в OSM — кружечки.
+  map.addLayer({
+    id: LAYER_POINTS,
+    type: 'circle',
+    source: SOURCE,
+    filter: ['==', ['geometry-type'], 'Point'],
+    paint: {
+      'circle-color': COLORS.unknown,
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 3, 17, 9],
+      'circle-stroke-color': '#ffffff',
+      'circle-stroke-width': 1.5,
+      'circle-pitch-alignment': 'map',
+    },
+  });
+
+  for (const layer of [LAYER_BUILDINGS, LAYER_POINTS]) {
+    map.on('click', layer, (e: MapLayerMouseEvent) => showPopup(e.features?.[0], e.lngLat));
+    map.on('mouseenter', layer, () => (map.getCanvas().style.cursor = 'pointer'));
+    map.on('mouseleave', layer, () => (map.getCanvas().style.cursor = ''));
+  }
+
+  repaint();
+  startStatusPolling((s) => {
+    current = s;
+    repaint();
+    refreshPopup();
+    renderStatusBar();
+  });
 });
-map.addLayer(cluster);
+
+// ---------- попап ----------
+
+let popup: maplibregl.Popup | null = null;
+let popupHouse: HouseProps | null = null;
 
 function popupHtml(h: HouseProps): string {
   const s = stateOf(h.queue);
   const updated = current.payload?.updated_at ?? '—';
-  const approx =
-    h.precision && h.precision !== 'ROOFTOP'
-      ? '<div class="popup-note">Розташування приблизне</div>'
-      : '';
+  const note =
+    h.match === 'fallback_point' ? '<div class="popup-note">Контур будинку не знайдено — показано точкою</div>' : '';
   return `
     <div class="popup">
       <div class="popup-address">${escapeHtml(h.address)}</div>
       <div>Підчерга: <b>${escapeHtml(h.queue)}</b></div>
       <div><span class="dot" style="background:${COLORS[s]}"></span>${STATE_LABELS[s]}</div>
       <div class="popup-time">Оновлено: ${escapeHtml(updated)}</div>
-      ${approx}
+      ${note}
     </div>`;
 }
 
-function styleMarker(m: HouseMarker): void {
-  const approx = m.house.precision && m.house.precision !== 'ROOFTOP';
-  m.setStyle({
-    fillColor: COLORS[stateOf(m.house.queue)],
-    color: approx ? '#555' : '#fff',
-    dashArray: approx ? '2 2' : undefined,
-  });
+function showPopup(f: MapGeoJSONFeature | undefined, at: maplibregl.LngLat): void {
+  if (!f) return;
+  popupHouse = f.properties as HouseProps;
+  popup?.remove();
+  popup = new maplibregl.Popup({ maxWidth: '260px' }).setLngLat(at).setHTML(popupHtml(popupHouse)).addTo(map);
+  popup.on('close', () => (popupHouse = null));
 }
 
-function repaint(): void {
-  markers.forEach(styleMarker);
-  cluster.refreshClusters();
-  const open = markers.find((m) => m.isPopupOpen());
-  open?.setPopupContent(popupHtml(open.house));
+function refreshPopup(): void {
+  if (popup && popupHouse) popup.setHTML(popupHtml(popupHouse));
 }
 
-async function loadHouses(): Promise<void> {
-  const res = await fetch('/houses.geojson');
-  const geo = (await res.json()) as GeoJSON.FeatureCollection<GeoJSON.Point, HouseProps>;
-  for (const f of geo.features) {
-    const [lng, lat] = f.geometry.coordinates;
-    const m = L.circleMarker([lat, lng], {
-      radius: 7,
-      weight: 1.5,
-      fillOpacity: 0.9,
-    }) as HouseMarker;
-    m.house = f.properties;
-    m.bindPopup(() => popupHtml(m.house));
-    styleMarker(m);
-    markers.push(m);
+// ---------- перемикач виду ----------
+
+class ViewToggle implements maplibregl.IControl {
+  private btn = document.createElement('button');
+  onAdd(): HTMLElement {
+    const wrap = document.createElement('div');
+    wrap.className = 'maplibregl-ctrl maplibregl-ctrl-group';
+    this.btn.type = 'button';
+    this.btn.className = 'view-toggle';
+    this.update();
+    this.btn.addEventListener('click', () => {
+      gameView = !gameView;
+      map.easeTo({ ...(gameView ? GAME_VIEW : FLAT_VIEW), duration: 800 });
+      this.update();
+    });
+    wrap.appendChild(this.btn);
+    return wrap;
   }
-  cluster.addLayers(markers);
+  onRemove(): void {}
+  private update(): void {
+    this.btn.textContent = gameView ? '2D' : '3D';
+    this.btn.title = gameView ? 'Звичайний вигляд (згори)' : 'Ігровий вигляд (нахил)';
+  }
 }
+map.addControl(new ViewToggle(), 'top-right');
+
+// ---------- плашка статусу ----------
 
 const statusBar = document.getElementById('status-bar')!;
 function renderStatusBar(): void {
+  const stale = current.stale;
+  statusBar.className = 'status-bar' + (stale ? ' stale' : '');
   if (!current.lastSuccess) {
-    statusBar.textContent = current.stale ? 'Не вдалося отримати статус' : 'Завантаження…';
-    statusBar.className = 'status-bar' + (current.stale ? ' stale' : '');
+    statusBar.textContent = stale ? 'Не вдалося отримати статус' : 'Завантаження…';
     return;
   }
   const t = current.payload?.updated_at ?? current.lastSuccess.toLocaleTimeString('uk-UA');
-  statusBar.textContent = current.stale ? `⚠ Дані застаріли · останнє оновлення ${t}` : `Оновлено ${t}`;
-  statusBar.className = 'status-bar' + (current.stale ? ' stale' : '');
+  statusBar.textContent = stale ? `⚠ Дані застаріли · останнє оновлення ${t}` : `Оновлено ${t}`;
 }
 
 function escapeHtml(s: string): string {
-  return s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+  return String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 }
-
-loadHouses()
-  .catch((err) => console.error('houses load failed:', err))
-  .finally(() => {
-    startStatusPolling((s) => {
-      current = s;
-      repaint();
-      renderStatusBar();
-    });
-  });

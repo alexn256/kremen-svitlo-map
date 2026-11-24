@@ -6,10 +6,11 @@ export interface StatusPayload {
   queues: Record<string, QueueState>;
 }
 
-export type Precision = 'ROOFTOP' | 'RANGE_INTERPOLATED' | 'GEOMETRIC_CENTER' | 'APPROXIMATE';
+/** Як адресу зіставлено з будинком (див. пайплайн у ТЗ). */
+export type MatchKind = 'osm_addr_tag' | 'point_in_polygon' | 'fallback_point';
 
 export interface HouseProps {
   address: string;
   queue: string;
-  precision?: Precision;
+  match: MatchKind;
 }
