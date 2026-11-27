@@ -1,0 +1,737 @@
+[
+ {
+  "street": "Кременчуцька вулиця",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Кременчуцька вулиця",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Кременчуцька вулиця",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Кременчуцька вулиця",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Кременчуцька вулиця",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Лісний провулок",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Лісний провулок",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Прорізний провулок",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "1-й Хорольський тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "10-й Хорольський тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "2-й Хорольський тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "3-й Хорольський тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "4-й Хорольський тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "5-й Хорольський тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "6-й Хорольський тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "7-й Хорольський тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "8-й Хорольський тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "9-й Хорольський тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Караїмський тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Ринковий провулок",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Ринковий провулок",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Молодіжний провулок",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Молодіжний провулок",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Молодіжний провулок",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Молодіжний провулок",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Молодіжний тупик",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Молодіжний тупик",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Молодіжний тупик",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Молодіжний тупик",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Вереснева вулиця",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Весела вулиця",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Весела вулиця",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Степова вулиця",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Степова вулиця",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Степова вулиця",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Степова вулиця",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Степова вулиця",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Вересневий провулок",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Малокохнівський провулок",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Річковий провулок",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Річковий проїзд",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Героїв Крут",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Героїв Крут",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Героїв Крут",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Героїв Крут",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "провулок Сковороди",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "провулок Сковороди",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "провулок Сковороди",
+  "cherga": 2,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Вишнева вулиця",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Вишнева вулиця",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Вишнева вулиця",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Вишнева вулиця",
+  "cherga": 2,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Вишнева вулиця",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Лугова вулиця",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Лугова вулиця",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Лугова вулиця",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Лугова вулиця",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Набережний провулок",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Набережний провулок",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Зоряна вулиця",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Зоряна вулиця",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Зоряна вулиця",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Прибережний провулок",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Зелений провулок",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Зелений провулок",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Зелений провулок",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Зелений провулок",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Михайлівська вулиця",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Михайлівська вулиця",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Гагаріна",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Гагаріна",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травневий провулок",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травневий провулок",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травневий провулок",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травневий проїзд",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травневий проїзд",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травневий проїзд",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травневий тупик",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травневий тупик",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травневий тупик",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Затишний тупик",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Затишний тупик",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Затишний тупик",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Степовий тупик",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Степовий тупик",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Раїси Кириченко",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Вільний провулок",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Панаса Мирного",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Короленка",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Короленка",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Короленка",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травнева вулиця",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травнева вулиця",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Травнева вулиця",
+  "cherga": 2,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Травнева вулиця",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Травнева вулиця",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Грушевського",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Грушевського",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Грушевського",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Грушевського",
+  "cherga": 2,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Соборності",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Соборності",
+  "cherga": 2,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Спортивна вулиця",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Спортивна вулиця",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Спортивна вулиця",
+  "cherga": 2,
+  "pid_cherga": 2
+ },
+ {
+  "street": "вулиця Захисників України",
+  "cherga": 2,
+  "pid_cherga": 2
+ },
+ {
+  "street": "провулок Захисників України",
+  "cherga": 2,
+  "pid_cherga": 2
+ },
+ {
+  "street": "тупик Захисників України",
+  "cherga": 2,
+  "pid_cherga": 2
+ },
+ {
+  "street": "вулиця Горького",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Горького",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Горького",
+  "cherga": 2,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Кільцева вулиця",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Кільцева вулиця",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Ярова вулиця",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Гранітний провулок",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "провулок Сумський",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "вулиця Павла Скоропадського",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Чорновола вулиця",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "вулиця Чорновола",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Басейний провулок",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Промисловий провулок",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Художній провулок",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "провулок Конституції",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "провулок Конституції",
+  "cherga": 4,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Полтавська вулиця",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Полтавська вулиця",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Полтавська вулиця",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Полтавська",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Полтавська",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Полтавська",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "провулок Пушкіна",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "провулок Пушкіна",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Заводський провулок",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "провулок Заводський",
+  "cherga": 4,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Будівельна вулиця",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Будівельна вулиця",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Центральний провулок",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Поштова вулиця",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Робітничий провулок",
+  "cherga": 5,
+  "pid_cherga": 1
+ },
+ {
+  "street": "вулиця Зинаїди Тулуб",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Гетьманська вулиця",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "провулок Григорія Ашкаренка",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Кременецький тупик",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "вулиця Олени Пчілки",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Барвінкова вулиця",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Квітковий провулок",
+  "cherga": 6,
+  "pid_cherga": 1
+ },
+ {
+  "street": "Будівельний провулок",
+  "cherga": 6,
+  "pid_cherga": 1
+ }
+]

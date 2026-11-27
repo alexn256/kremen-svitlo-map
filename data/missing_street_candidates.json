@@ -1,0 +1,697 @@
+[
+ {
+  "street": "Вул.Оксани Петрусенко",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Небесної сотні",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Небесної сотні",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Євгена Коновальця",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Ромоданівська",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Приреченська",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Новоселівська",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Шевченка",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Марії Раскової",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Новий",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Макаренка",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Макаренка",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Мислівська",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Весняна",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Ботанічна",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Зелена",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Кооперативна",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Лісова",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Бригадна",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Нечая",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Громадянська",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Кооперативний",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Барьєрний",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Бакинський",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Західний",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Луговий",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Сєдова",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Пирогова",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Бригадний",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Дачний",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Весняний",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Черкаський",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Академіка Маслова",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Софіївська",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Чередницький",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Юрія Руфа",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Локомотивна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Оксани Мешко",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Майора Пугачаа",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "ДК КрАЗ",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Кременчуцький льотний коледж",
+  "cherga": 1,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Дніпровський",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Манагарова",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Сонячна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Університетський",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Театральний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Господарська",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Дружинницька",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Івана Багряного",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Нижня",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Паризька",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Черняховського",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Льва Орнштейна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Рєпіна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Івана Дзюби",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Щаслива",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Господарський",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Марії Примаченко",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Південний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Фізкультурний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Ударний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Спартаківський",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Динамівський",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Парковий",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Велика Набережна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Воєнна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Деповська",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "К.Карого",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Батуринська",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "В'ячеслава Чорновола",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "М.Кучми",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Новоіванівська",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Олеся Гончара",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Редутна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Силікатна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Фурштадська",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Ярмаркова",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Воєнний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Новоіванівський",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Редутний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Силікатний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Столярный",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Тихий",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Басейна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Вагонна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Межова",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Ново-Межева",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Ново-Межева",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Паркова",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Паркова",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Деповський",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Житлобудівний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Залізничний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Колгоспний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Фруктовий",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Світловодський",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Вул. Червона Гірка",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Білецьківська",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Петра Сагайдачного",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Дмитра Вишневецького",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Костянтина Острозького",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Херсонська",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Криворіжський",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Акаміка Герасимовича",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Сербіченка",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Кузнєчна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Кучерова",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Павла Чубинського",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Лінійна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Сергія Єфрємова",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Ракітіна",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Топольовий",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Літописний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Докучаєва",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Мирний",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Яблуневий",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Художній",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Лікаря Бончука",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Пров. Євгена Гребінки",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Вул. Тараса Бульби",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Зелене господарство",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Павлівський",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Центр ПМСД м. Горішні Плавні Горького",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Миру",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Васьківка",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Пронозівка",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Мозоліївка",
+  "cherga": 3,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Андріївська",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Кременчуцьких Артилеристів",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Марка Вовчка",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Гетьманська",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Олександра Чайки",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Михайла Калачевського",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Новомиргородська",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Ракетна",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Княгині Ольги",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Олександра Довженко",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "Енергетиків",
+  "cherga": 5,
+  "pid_cherga": 2
+ },
+ {
+  "street": "І.Сердюка",
+  "cherga": 5,
+  "pid_cherga": 2
+ }
+]

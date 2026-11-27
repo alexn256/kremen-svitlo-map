@@ -7,11 +7,16 @@ export interface StatusSnapshot {
   stale: boolean;
 }
 
+export interface StatusController {
+  /** Негайний позачерговий запит (напр. по кнопці «Оновити»). */
+  refresh: () => Promise<void>;
+}
+
 /**
  * Опитує status.json. При помилці зберігає останній відомий статус
  * і позначає його як застарілий — точки не зникають.
  */
-export function startStatusPolling(onUpdate: (s: StatusSnapshot) => void): void {
+export function startStatusPolling(onUpdate: (s: StatusSnapshot) => void): StatusController {
   const snapshot: StatusSnapshot = { payload: null, lastSuccess: null, stale: false };
 
   async function tick(): Promise<void> {
@@ -35,4 +40,6 @@ export function startStatusPolling(onUpdate: (s: StatusSnapshot) => void): void 
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') void tick();
   });
+
+  return { refresh: tick };
 }

@@ -7,7 +7,38 @@
   </head>
   <body>
     <div id="map"></div>
+
+    <div id="left-stack" class="left-stack">
+      <div id="app-title" class="app-title"></div>
+      <div id="queue-panel" class="queue-panel" role="group" aria-label="Виділити чергу"></div>
+      <div id="timeline-panel" class="timeline-panel" role="group" aria-label="Час доби">
+        <div id="timeline-time" class="timeline-time"></div>
+        <div class="timeline-track">
+          <div class="timeline-slider-box">
+            <input
+              type="range"
+              id="timeline-slider"
+              class="timeline-slider"
+              min="0"
+              max="1439"
+              step="10"
+            />
+          </div>
+          <div class="timeline-ticks" aria-hidden="true">
+            <span style="top: 0%">00</span>
+            <span style="top: 25%">06</span>
+            <span style="top: 50%">12</span>
+            <span style="top: 75%">18</span>
+            <span style="top: 100%">24</span>
+          </div>
+        </div>
+        <button type="button" id="timeline-live-btn" class="timeline-live-btn">⏺ Live</button>
+      </div>
+    </div>
+
     <div id="status-bar" class="status-bar" aria-live="polite"></div>
+    <footer id="app-footer" class="app-footer"></footer>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

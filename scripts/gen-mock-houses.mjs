@@ -44,8 +44,26 @@ for (let i = 0; i < 400; i++) {
 writeFileSync('public/houses.geojson', JSON.stringify({ type: 'FeatureCollection', features }));
 
 const states = ['on', 'off', 'switching'];
+
+// Денний розклад — для таймлайн-повзунка: дві умовні «відключені» ділянки
+// на чергу, рознесені по добі (не справжній графік, лише демо-форма).
+const DAY = 24 * 60;
+const hhmm = (min) => `${String(Math.floor(min / 60) % 24).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
+const schedule = Object.fromEntries(
+  queues.map((q, i) => {
+    const dur = 150 + Math.floor(rnd() * 90); // 2.5–4 год
+    const start1 = (i * 110) % (DAY - dur);
+    const start2 = (start1 + DAY / 2) % (DAY - dur);
+    const ranges = [start1, start2]
+      .sort((a, b) => a - b)
+      .map((s) => ({ start: hhmm(s), end: hhmm(s + dur) }));
+    return [q, ranges];
+  }),
+);
+
 writeFileSync('public/status.mock.json', JSON.stringify({
   updated_at: '24.11.2026 12:00',
   queues: Object.fromEntries(queues.map((q, i) => [q, states[i % 3]])),
+  schedule,
 }, null, 2) + '\n');
 console.log(`houses: ${features.length}`);

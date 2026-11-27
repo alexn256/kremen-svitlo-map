@@ -34,3 +34,10 @@ export const STATE_LABELS: Record<QueueState | 'unknown', string> = {
   switching: 'Перемикання',
   unknown: 'Невідомо',
 };
+
+export const APP_TITLE = 'Svitlo Kremenchuk';
+export const AUTHOR_HANDLE = '@M_AHTS';
+export const AUTHOR_URL = 'https://t.me/M_AHTS';
+
+/** Той самий список підчерг, що й у боті: 6 черг по 2 підчерги. */
+export const QUEUES: string[] = Array.from({ length: 6 }, (_, i) => i + 1).flatMap((q) => [`${q}.1`, `${q}.2`]);
