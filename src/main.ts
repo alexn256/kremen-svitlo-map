@@ -16,6 +16,7 @@ import {
   GAME_VIEW,
   KREMEN_CENTER,
   MAP_STYLE_URL,
+  MAP_STYLES,
   QUEUES,
   STATE_LABELS,
 } from './config';
@@ -88,7 +89,15 @@ function repaint(): void {
   map.setPaintProperty(LAYER_BUILDINGS, 'fill-extrusion-color', colorExpression());
 }
 
-map.on('load', () => {
+/**
+ * Додає наш шар будинків поверх базового стилю. Викликається і при першому
+ * завантаженні, і після кожного ручного `map.setStyle(...)` (перемикач
+ * стилю) — `setStyle` скидає всі кастомні джерела/шари, тож їх доводиться
+ * піднімати заново. Обробники кліків/ховеру реєструються одноразово
+ * (нижче, поза цією функцією) — вони прив'язані до id шару, а не до
+ * конкретного інстансу стилю, і переживають `setStyle`.
+ */
+function setupHousesLayer(): void {
   // Деякі базові стилі (напр. "liberty") самі малюють об'ємні сірі будинки —
   // вони плутаються з нашими кольоровими поверх. Ховаємо чужий шар будівель,
   // якщо він є в конкретному стилі; якщо немає (positron/dark/bright) — нема що ховати.
@@ -96,29 +105,38 @@ map.on('load', () => {
     if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', 'none');
   }
 
-  map.addSource(SOURCE, { type: 'geojson', data: '/houses.geojson' });
+  if (!map.getSource(SOURCE)) {
+    map.addSource(SOURCE, { type: 'geojson', data: '/houses.geojson' });
+  }
 
   // Наша «маска»: об'ємні кольорові будинки зі списку поверх нейтрального фону.
   // Висота береться з властивості кожного об'єкта (`height` у houses.geojson) —
   // у адрес без знайденого контуру будівлі вона навмисно нижча (синтетичний
   // "кубик" навколо геокодованої точки, а не справжній контур).
-  map.addLayer({
-    id: LAYER_BUILDINGS,
-    type: 'fill-extrusion',
-    source: SOURCE,
-    paint: {
-      'fill-extrusion-color': COLORS.unknown,
-      'fill-extrusion-height': ['coalesce', ['get', 'height'], BUILDING_HEIGHT_M],
-      'fill-extrusion-base': 0,
-      'fill-extrusion-opacity': 0.92,
-    },
-  });
-
-  map.on('click', LAYER_BUILDINGS, (e: MapLayerMouseEvent) => showPopup(e.features?.[0], e.lngLat));
-  map.on('mouseenter', LAYER_BUILDINGS, () => (map.getCanvas().style.cursor = 'pointer'));
-  map.on('mouseleave', LAYER_BUILDINGS, () => (map.getCanvas().style.cursor = ''));
+  if (!map.getLayer(LAYER_BUILDINGS)) {
+    map.addLayer({
+      id: LAYER_BUILDINGS,
+      type: 'fill-extrusion',
+      source: SOURCE,
+      paint: {
+        'fill-extrusion-color': COLORS.unknown,
+        'fill-extrusion-height': ['coalesce', ['get', 'height'], BUILDING_HEIGHT_M],
+        'fill-extrusion-base': 0,
+        'fill-extrusion-opacity': 0.92,
+      },
+    });
+  }
 
   repaint();
+}
+
+map.on('click', LAYER_BUILDINGS, (e: MapLayerMouseEvent) => showPopup(e.features?.[0], e.lngLat));
+map.on('mouseenter', LAYER_BUILDINGS, () => (map.getCanvas().style.cursor = 'pointer'));
+map.on('mouseleave', LAYER_BUILDINGS, () => (map.getCanvas().style.cursor = ''));
+
+map.on('style.load', setupHousesLayer);
+
+map.on('load', () => {
   statusController = startStatusPolling((s) => {
     current = s;
     repaint();
@@ -196,6 +214,40 @@ class ViewToggle implements maplibregl.IControl {
     this.btn.title = gameView ? 'Звичайний вигляд (згори)' : 'Ігровий вигляд (нахил)';
   }
 }
+// ---------- перемикач стилю карти ----------
+// Клік ходить по колу MAP_STYLES. `map.setStyle(...)` скидає кастомні
+// джерела/шари — їх піднімає заново обробник 'style.load' (див. вище).
+
+let styleIndex = Math.max(
+  0,
+  MAP_STYLES.findIndex((s) => s.url === MAP_STYLE_URL),
+);
+
+class StyleToggle implements maplibregl.IControl {
+  private btn = document.createElement('button');
+  onAdd(): HTMLElement {
+    const wrap = document.createElement('div');
+    wrap.className = 'maplibregl-ctrl maplibregl-ctrl-group';
+    this.btn.type = 'button';
+    this.btn.className = 'style-toggle';
+    this.btn.textContent = '🗺';
+    this.update();
+    this.btn.addEventListener('click', () => {
+      styleIndex = (styleIndex + 1) % MAP_STYLES.length;
+      map.setStyle(MAP_STYLES[styleIndex].url);
+      this.update();
+    });
+    wrap.appendChild(this.btn);
+    return wrap;
+  }
+  onRemove(): void {}
+  private update(): void {
+    const next = MAP_STYLES[(styleIndex + 1) % MAP_STYLES.length].label;
+    this.btn.title = `Стиль карти: ${MAP_STYLES[styleIndex].label} (клік — ${next})`;
+    this.btn.setAttribute('aria-label', this.btn.title);
+  }
+}
+
 // ---------- контрол «оновити» ----------
 // Той самий maplibregl-ctrl-group, що й у ViewToggle — MapLibre сам стекує
 // контроли одного кута один під одним, тож нічого не налазить одне на одне.
@@ -224,6 +276,7 @@ class RefreshControl implements maplibregl.IControl {
   onRemove(): void {}
 }
 map.addControl(new ViewToggle(), 'top-right');
+map.addControl(new StyleToggle(), 'top-right');
 map.addControl(new RefreshControl(), 'top-right');
 
 // ---------- сітка черг: легенда + вибір одним тапом ----------

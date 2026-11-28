@@ -69,6 +69,10 @@ body {
   font-size: 13px;
 }
 
+.style-toggle {
+  font-size: 15px;
+}
+
 .maplibregl-popup-content {
   border-radius: 10px;
   padding: 10px 14px;
@@ -297,5 +301,23 @@ body {
     width: 36px;
     height: 26px;
     font-size: 10px;
+  }
+
+  /*
+   * На вузьких екранах обидві плашки розтягуються майже на всю ширину й
+   * накладаються одна на одну — рознесли по висоті: підвал ближче до краю,
+   * статус-бар над ним.
+   */
+  .app-footer {
+    left: 8px;
+    right: 8px;
+    text-align: center;
+    white-space: normal;
+    font-size: 9.5px;
+  }
+
+  .status-bar {
+    bottom: calc(40px + env(safe-area-inset-bottom));
+    font-size: 12px;
   }
 }

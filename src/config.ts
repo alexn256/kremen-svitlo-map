@@ -3,12 +3,19 @@ import type { QueueState } from './types';
 export const STATUS_URL: string = import.meta.env.VITE_STATUS_URL || '/status.mock.json';
 export const POLL_INTERVAL_MS: number = Number(import.meta.env.VITE_POLL_INTERVAL_MS) || 45_000;
 
+/** Стилі карти, між якими перемикає кнопка в правому верхньому куті. */
+export const MAP_STYLES: { label: string; url: string }[] = [
+  { label: 'Кольорова', url: 'https://tiles.openfreemap.org/styles/liberty' },
+  { label: 'Світла', url: 'https://tiles.openfreemap.org/styles/positron' },
+  { label: 'Темна', url: 'https://tiles.openfreemap.org/styles/dark' },
+];
+
 /**
  * Базовий стиль карти. Поки немає ключа MapTiler/Stadia — OpenFreeMap (без ключа).
- * Пізніше просто підміняємо URL через VITE_MAP_STYLE_URL.
+ * VITE_MAP_STYLE_URL підміняє початковий вибір (напр. для деплою без змінної —
+ * перший зі списку), перемикач кнопкою далі ходить по MAP_STYLES.
  */
-export const MAP_STYLE_URL: string =
-  import.meta.env.VITE_MAP_STYLE_URL || 'https://tiles.openfreemap.org/styles/positron';
+export const MAP_STYLE_URL: string = import.meta.env.VITE_MAP_STYLE_URL || MAP_STYLES[0].url;
 
 export const KREMEN_CENTER: [number, number] = [33.4204, 49.0659]; // [lng, lat]
 export const DEFAULT_ZOOM = 14;
